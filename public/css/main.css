@@ -1,8 +1,8 @@
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 
     /* ===== Root Variables ===== */
     :root {
-    --poppins-font: 'Poppins', sans-serif;
+    --main-font: "NotoIKEA", "Verdana", -apple-system, BlinkMacSystemFont, 
+              "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     --transition: all 300ms ease-in-out;
     --brown-color: #3aaaf9;
     --dark-color: #222;
@@ -27,7 +27,7 @@
     }
 
     body {
-    font-family: var(--poppins-font);
+    font-family: var(--main-font);
     font-size: 1.7rem;
     line-height: 1.6;
     color: var(--dark-color);

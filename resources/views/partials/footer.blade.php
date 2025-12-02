@@ -19,8 +19,8 @@
     .footer {
         background-color: #d3d3d3;
         padding: 2rem 1rem;
-        font-family: 'Poppins', sans-serif;
-        color: #333;
+font-family: "NotoIKEA", "Verdana", -apple-system, BlinkMacSystemFont,
+             "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;        color: #333;
         text-align: center;
     }
 

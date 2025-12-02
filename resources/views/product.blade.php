@@ -433,6 +433,9 @@
 
 
 
+
+
+
     /*-----------------------------------*\
   #MEDIA QUERIES
 \*-----------------------------------*/
@@ -441,7 +444,7 @@
  * responsive for large than 575px screen
  */
 
-    @media (min-width: 575px) {
+    @media (min-width: 300px) {
 
       /**
    * REUSED STYLE
@@ -455,15 +458,8 @@
       }
 
       .grid-list {
-        grid-template-columns: 1fr 1%;
-        column-gap: 15px;
-      }
-
-      .grid-list>li:last-child {
-        grid-column: span 2;
-        max-width: calc(50% - 12.5px);
-        width: 100%;
-        margin-inline: auto;
+            grid-template-columns: repeat(2, 1fr);       
+          column-gap: 10px;
       }
 
 

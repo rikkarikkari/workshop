@@ -33,3 +33,7 @@ Route::get('/admin', function () {
 Route::get('/user', function () {
     return view('user');
 })->name('user.page');
+
+Route::get('/cart', function () {
+    return view('cart');
+})->name('cart.page');

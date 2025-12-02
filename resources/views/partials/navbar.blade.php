@@ -11,8 +11,8 @@
     /* ===== NAVBAR UTAMA ===== */
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      overflow-x: hidden;
+font-family: "NotoIKEA", "Verdana", -apple-system, BlinkMacSystemFont,
+             "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;      overflow-x: hidden;
     }
 
     .navbar {
@@ -26,7 +26,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 8rem;
+      padding: 0 5rem;
       box-sizing: border-box;
       box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.15);
 
@@ -217,7 +217,7 @@
 
     <!-- Bagian Kanan -->
     <div class="nav-right">
-      <a href="{{ route('login.page', ['page' => 'login']) }}" class="btn"><i class="fas fa-user"></i></a>
+      <a href="{{ route('cart.page') }}" class="btn"><i class="fas fa-shopping-cart"></i></a>
       <div class="inputBox_container">
         <svg class="search_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" alt="search icon">
           <path
