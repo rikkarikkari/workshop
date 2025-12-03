@@ -126,8 +126,6 @@
 
             if (data.email === "rikkarikku1@gmail.com") {
                 window.location.href = "{{ route('admin.page') }}";
-            } else {
-                window.location.href = "{{ route('index.page') }}";
             }
         }
 
@@ -149,8 +147,6 @@
         if (currentUser) {
             if (currentUser.email === "rikkarikku1@gmail.com") {
                 window.location.href = "{{ route('admin.page') }}";
-            } else {
-                window.location.href = "{{ route('index.page') }}";
             }
         }
     </script>

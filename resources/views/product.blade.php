@@ -49,9 +49,9 @@
       /**
    * typography
    */
+    --main-font: "NotoIKEA", "Verdana", -apple-system, BlinkMacSystemFont, 
+              "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
-      --ff-roboto: 'Roboto', sans-serif;
-      --ff-mr_de_haviland: 'Mr De Haviland', cursive;
 
       --fs-1: 6rem;
       --fs-2: 3rem;
@@ -564,10 +564,6 @@
   <!-- 
     - google font link
   -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Mr+De+Haviland&family=Roboto:wght@400;500;700&display=swap"
-    rel="stylesheet">
 
 </head>
 
@@ -624,17 +620,9 @@
 
                   <ul class="card-action-list">
 
-                    <li>
-                      <button class="card-action-btn" aria-label="add to cart" title="add to cart">
-                        <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
-                      </button>
-                    </li>
 
-                    <li>
-                      <button class="card-action-btn" aria-label="add to whishlist" title="add to whishlist">
-                        <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
-                      </button>
-                    </li>
+
+
 
                   </ul>
 
@@ -665,17 +653,9 @@
 
                   <ul class="card-action-list">
 
-                    <li>
-                      <button class="card-action-btn" aria-label="add to cart" title="add to cart">
-                        <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
-                      </button>
-                    </li>
 
-                    <li>
-                      <button class="card-action-btn" aria-label="add to whishlist" title="add to whishlist">
-                        <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
-                      </button>
-                    </li>
+
+
 
                   </ul>
 
@@ -703,17 +683,9 @@
 
                   <ul class="card-action-list">
 
-                    <li>
-                      <button class="card-action-btn" aria-label="add to cart" title="add to cart">
-                        <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
-                      </button>
-                    </li>
 
-                    <li>
-                      <button class="card-action-btn" aria-label="add to whishlist" title="add to whishlist">
-                        <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
-                      </button>
-                    </li>
+
+
 
                   </ul>
                 </a>
@@ -740,17 +712,9 @@
 
                   <ul class="card-action-list">
 
-                    <li>
-                      <button class="card-action-btn" aria-label="add to cart" title="add to cart">
-                        <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
-                      </button>
-                    </li>
 
-                    <li>
-                      <button class="card-action-btn" aria-label="add to whishlist" title="add to whishlist">
-                        <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
-                      </button>
-                    </li>
+
+
 
                   </ul>
                 </a>
@@ -777,17 +741,9 @@
 
                   <ul class="card-action-list">
 
-                    <li>
-                      <button class="card-action-btn" aria-label="add to cart" title="add to cart">
-                        <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
-                      </button>
-                    </li>
 
-                    <li>
-                      <button class="card-action-btn" aria-label="add to whishlist" title="add to whishlist">
-                        <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
-                      </button>
-                    </li>
+
+
 
                   </ul>
                 </a>
@@ -814,17 +770,9 @@
 
                   <ul class="card-action-list">
 
-                    <li>
-                      <button class="card-action-btn" aria-label="add to cart" title="add to cart">
-                        <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
-                      </button>
-                    </li>
 
-                    <li>
-                      <button class="card-action-btn" aria-label="add to whishlist" title="add to whishlist">
-                        <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
-                      </button>
-                    </li>
+
+
 
                   </ul>
                 </a>
@@ -851,17 +799,9 @@
 
                   <ul class="card-action-list">
 
-                    <li>
-                      <button class="card-action-btn" aria-label="add to cart" title="add to cart">
-                        <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
-                      </button>
-                    </li>
 
-                    <li>
-                      <button class="card-action-btn" aria-label="add to whishlist" title="add to whishlist">
-                        <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
-                      </button>
-                    </li>
+
+
 
                   </ul>
                 </a>
@@ -888,17 +828,9 @@
 
                   <ul class="card-action-list">
 
-                    <li>
-                      <button class="card-action-btn" aria-label="add to cart" title="add to cart">
-                        <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
-                      </button>
-                    </li>
 
-                    <li>
-                      <button class="card-action-btn" aria-label="add to whishlist" title="add to whishlist">
-                        <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
-                      </button>
-                    </li>
+
+
 
                   </ul>
                 </a>
@@ -925,17 +857,9 @@
 
                   <ul class="card-action-list">
 
-                    <li>
-                      <button class="card-action-btn" aria-label="add to cart" title="add to cart">
-                        <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
-                      </button>
-                    </li>
 
-                    <li>
-                      <button class="card-action-btn" aria-label="add to whishlist" title="add to whishlist">
-                        <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
-                      </button>
-                    </li>
+
+
 
                   </ul>
                 </a>
@@ -962,17 +886,9 @@
 
                   <ul class="card-action-list">
 
-                    <li>
-                      <button class="card-action-btn" aria-label="add to cart" title="add to cart">
-                        <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
-                      </button>
-                    </li>
 
-                    <li>
-                      <button class="card-action-btn" aria-label="add to whishlist" title="add to whishlist">
-                        <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
-                      </button>
-                    </li>
+
+
 
                   </ul>
                 </a>
@@ -999,17 +915,9 @@
 
                   <ul class="card-action-list">
 
-                    <li>
-                      <button class="card-action-btn" aria-label="add to cart" title="add to cart">
-                        <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
-                      </button>
-                    </li>
 
-                    <li>
-                      <button class="card-action-btn" aria-label="add to whishlist" title="add to whishlist">
-                        <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
-                      </button>
-                    </li>
+
+
 
                   </ul>
                 </a>
@@ -1036,17 +944,9 @@
 
                   <ul class="card-action-list">
 
-                    <li>
-                      <button class="card-action-btn" aria-label="add to cart" title="add to cart">
-                        <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
-                      </button>
-                    </li>
 
-                    <li>
-                      <button class="card-action-btn" aria-label="add to whishlist" title="add to whishlist">
-                        <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
-                      </button>
-                    </li>
+
+
 
                   </ul>
                 </a>
@@ -1073,17 +973,9 @@
 
                   <ul class="card-action-list">
 
-                    <li>
-                      <button class="card-action-btn" aria-label="add to cart" title="add to cart">
-                        <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
-                      </button>
-                    </li>
 
-                    <li>
-                      <button class="card-action-btn" aria-label="add to whishlist" title="add to whishlist">
-                        <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
-                      </button>
-                    </li>
+
+
 
                   </ul>
                 </a>
@@ -1110,17 +1002,9 @@
 
                   <ul class="card-action-list">
 
-                    <li>
-                      <button class="card-action-btn" aria-label="add to cart" title="add to cart">
-                        <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
-                      </button>
-                    </li>
 
-                    <li>
-                      <button class="card-action-btn" aria-label="add to whishlist" title="add to whishlist">
-                        <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
-                      </button>
-                    </li>
+
+
 
                   </ul>
                 </a>
@@ -1147,17 +1031,9 @@
 
                   <ul class="card-action-list">
 
-                    <li>
-                      <button class="card-action-btn" aria-label="add to cart" title="add to cart">
-                        <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
-                      </button>
-                    </li>
 
-                    <li>
-                      <button class="card-action-btn" aria-label="add to whishlist" title="add to whishlist">
-                        <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
-                      </button>
-                    </li>
+
+
 
                   </ul>
                 </a>
@@ -1184,17 +1060,9 @@
 
                   <ul class="card-action-list">
 
-                    <li>
-                      <button class="card-action-btn" aria-label="add to cart" title="add to cart">
-                        <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
-                      </button>
-                    </li>
 
-                    <li>
-                      <button class="card-action-btn" aria-label="add to whishlist" title="add to whishlist">
-                        <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
-                      </button>
-                    </li>
+
+
 
                   </ul>
                 </a>
@@ -1221,17 +1089,9 @@
 
                   <ul class="card-action-list">
 
-                    <li>
-                      <button class="card-action-btn" aria-label="add to cart" title="add to cart">
-                        <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
-                      </button>
-                    </li>
 
-                    <li>
-                      <button class="card-action-btn" aria-label="add to whishlist" title="add to whishlist">
-                        <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
-                      </button>
-                    </li>
+
+
 
                   </ul>
                 </a>
@@ -1258,17 +1118,9 @@
 
                   <ul class="card-action-list">
 
-                    <li>
-                      <button class="card-action-btn" aria-label="add to cart" title="add to cart">
-                        <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
-                      </button>
-                    </li>
 
-                    <li>
-                      <button class="card-action-btn" aria-label="add to whishlist" title="add to whishlist">
-                        <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
-                      </button>
-                    </li>
+
+
 
                   </ul>
                 </a>
@@ -1295,17 +1147,9 @@
 
                   <ul class="card-action-list">
 
-                    <li>
-                      <button class="card-action-btn" aria-label="add to cart" title="add to cart">
-                        <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
-                      </button>
-                    </li>
 
-                    <li>
-                      <button class="card-action-btn" aria-label="add to whishlist" title="add to whishlist">
-                        <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
-                      </button>
-                    </li>
+
+
 
                   </ul>
                 </a>
@@ -1327,6 +1171,7 @@
 
         </div>
     </article>
+
   </main>
 
 

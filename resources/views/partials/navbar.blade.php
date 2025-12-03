@@ -217,7 +217,12 @@ font-family: "NotoIKEA", "Verdana", -apple-system, BlinkMacSystemFont,
 
     <!-- Bagian Kanan -->
     <div class="nav-right">
-      <a href="{{ route('cart.page') }}" class="btn"><i class="fas fa-shopping-cart"></i></a>
+    <a href="{{ route('cart.page') }}" class="btn">
+        <img src="{{ asset('images/cart.png') }}" 
+            alt="Cart" 
+            style="width: 24px; height: 24px; object-fit: contain;">
+    </a>
+      
       <div class="inputBox_container">
         <svg class="search_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" alt="search icon">
           <path

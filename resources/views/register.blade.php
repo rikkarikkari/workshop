@@ -35,7 +35,7 @@
 
             <div class="button-group">
                 <button type="submit" class="btn register-btn">{{ __('Daftar') }}</button>
-                <button type="button" class="btn login-btn" onclick="window.location.href='login.html'">{{ __('Login') }}</button>
+                <button type="button" class="btn login-btn" onclick="window.location.href='login'">{{ __('Login') }}</button>
             </div>
         </form>
 

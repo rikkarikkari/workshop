@@ -18,7 +18,6 @@
     <link rel="stylesheet" href="{{ asset('css/utilities.css') }}">
     <!-- custom main css -->
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
 
 </head>
 
@@ -31,7 +30,7 @@
             <div class="header-content grid text-center">
                 <div class="header-left">
                     <div class="text-box">
-                        <h1>{{ __('Desain yang modern dengan kualitas terbaik') }}</h1>
+                        <h1>{{ __('Desain Modern dengan Kualitas Terbaik') }}</h1>
                         <p class="text">{{ __('Tingkatkan suasana ruangan dengan desain furniture modern yang dibuat dengan                            tujuan memberikan rasa nyaman pada ruangan anda') }}</p>
                         <a href="#" class="btn-header text-white bg-brown">{{ __('shop now') }}</a>
                     </div>
@@ -171,7 +170,8 @@
         <!-- end of catalog section -->
     </main>
     <!-- end of main content -->
-@include('partials.footer')
+    @include('partials.footer')
+
 
     </div>
 
@@ -209,47 +209,8 @@
             });
         });
     </script>
-
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            document.querySelectorAll(".category-item").forEach(item => {
-                item.addEventListener("click", function () {
-                    const id = this.getAttribute("data-id");
-                    console.log("Menuju ke:", `product.html?id=${id}`);
-                    window.location.href = `product.html?id=${id}`;
-                });
-            });
-        });
-    </script>
-
-            <script>
-        fetch("navbar.html")
-        .then(res => res.text())
-        .then(data => {
-            document.getElementById("navbar").innerHTML = data;
-
-            // Jalankan ulang skrip setelah navbar dimuat
-            const hamburger = document.getElementById('hamburger');
-            const navMenu = document.getElementById('nav-menu');
-
-            if (hamburger && navMenu) {
-                hamburger.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-                hamburger.innerHTML = navMenu.classList.contains('active')
-                    ? '<i class="fa-solid fa-xmark"></i>'
-                    : '<i class="fa-solid fa-bars"></i>';
-
-                // Tambahkan efek dorong isi index.html ke bawah
-                document.body.classList.toggle('nav-open');
-                });
-            }
-        })
-        .catch(err => console.error("Gagal memuat navbar:", err));
-            </script>
-
     <!-- custom js -->
-    <script src="{{ asset('js/script.js') }}"></script>
+    <script src="{{ asset(path: 'js/script.js') }}"></script>
 </body>
 
 </html>
