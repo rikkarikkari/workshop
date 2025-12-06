@@ -11,7 +11,7 @@
     <!-- utilities & main CSS -->
     <link rel="stylesheet" href="{{ asset('css/utilities.css') }}">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         html,
         body {
@@ -43,11 +43,13 @@
             width: 90%;
         }
 
+        .body {
+            padding-bottom: 90px;
+        }
+
         h2 {
             font-family: "NotoIKEA", "Verdana", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             font-size: 3rem;
-            margin: 4rem auto;
-            margin-top: 2rem;
         }
 
         .cart-item {
@@ -121,40 +123,6 @@
             .qty-control {
                 justify-content: center;
             }
-        }
-
-        .stickyCheckoutBottom {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: #ffffff;
-            border-top: 2px solid #000;
-            padding: 15px 20px;
-            box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.15);
-            z-index: 9999;
-        }
-
-        .checkout-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-family: "NotoIKEA", Arial, sans-serif;
-        }
-
-        .checkout-total {
-            font-size: 1.4rem;
-            font-weight: bold;
-        }
-
-        .checkout-btn {
-            background: #ffdd00;
-            border: none;
-            padding: 12px 25px;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 10px;
-            cursor: pointer;
         }
 
         .cart-header {
@@ -288,49 +256,217 @@
             border: 1px solid #b20000;
         }
 
-        /* SUBTOTAL MELAYANG DI BAWAH */
-        .stickyCheckoutBottom {
-            position: fixed;
-            bottom: 0;
-            left: 0;
+        .checkout-btn {
+            margin-top: 20px;
+            margin-bottom: 20px;
             width: 100%;
-            background: #ffffff;
-            border-top: 2px solid #000;
-            padding: 15px 20px;
-            box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.15);
-            z-index: 9999;
+            background: #000;
+            color: #fff;
+            padding: 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
         }
 
-        .checkout-content {
-            width: 90%;
-            margin: auto;
+        .checkout-btn:hover {
+            background: #333;
+        }
+
+        .address-box {
+            margin-top: 20px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        /* HEADER */
+        .address-header {
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .address-header .arrow {
+            transition: transform 0.3s;
+        }
+
+        .address-header.active .arrow {
+            transform: rotate(180deg);
+        }
+
+        /* FORM (disembunyikan awalnya) */
+        .address-form {
+            padding: 0 20px;
+            padding-bottom: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.45s ease;
+        }
+
+        .address-form.show {
+            max-height: 1200px;
+            padding: 20px 20px 20px;
+            /* cukup besar untuk seluruh form */
+        }
+
+        .address-form label {
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: -6px;
+        }
+
+        .address-form input,
+        .address-form select {
+            padding: 12px;
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            font-size: 15px;
+            outline: none;
+        }
+
+
+        .btn-submit {
+            background: #f36f21;
+            color: #fff;
+            padding: 14px;
+            border-radius: 12px;
+            border: none;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+
+        /* BOX UTAMA */
+        .shipping-box {
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.06);
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        /* HEADER */
+        .shipping-header {
+            padding: 15px 18px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .checkout-total {
-            font-size: 1.4rem;
-            font-weight: bold;
+        .shipping-header .arrow-ship {
+            transition: 0.3s;
         }
 
-        .checkout-btn {
-            background: #ffdd00;
-            border: none;
-            padding: 12px 25px;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 10px;
+        .shipping-header.active .arrow-ship {
+            transform: rotate(180deg);
+        }
+
+        /* OPSI (Tersembunyi awalnya) */
+        .shipping-options {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.45s ease, padding 0.3s ease;
+        }
+
+        /* Ketika terbuka */
+        .shipping-options.show {
+            max-height: 1000px;
+            padding: 15px;
+        }
+
+        /* Desain kartu tetap sama seperti punya Anda */
+        .ship-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px;
+            background: #fafafa;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            border: 1px solid #e4e4e4;
             cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .ship-card:hover {
+            background: #f1f1f1;
+        }
+
+        .ship-card input {
+            transform: scale(1.2);
+            margin-right: 12px;
+        }
+
+        .ship-info {
+            flex: 1;
+            margin-left: 10px;
+        }
+
+        .ship-title {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .ship-desc {
+            font-size: 13px;
+            color: #777;
+        }
+
+        .ship-price {
+            font-weight: 600;
+            font-size: 15px;
+            white-space: nowrap;
+        }
+
+
+        .address-summary {
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 8px;
+        }
+
+        .address-summary button {
+            margin-top: 10px;
+            padding: 8px 14px;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .address-summary button:hover {
+            background: #0056b3;
         }
 
         /* ============================
    SUPER SMALL DEVICES (≤ 360px)
    ============================ */
         @media (max-width: 475px) {
-
             .container {
                 width: 95%;
+            }
+
+            h2 {
+                font-size: 2rem !important;
+                margin: 2rem auto;
             }
 
             .cart-header {
@@ -357,10 +493,6 @@
             .info p {
                 font-size: 12px;
                 line-height: 14px;
-            }
-
-            .container h2 {
-                font-size: 2.5rem;
             }
 
             .item-price {
@@ -464,8 +596,9 @@
 
     <body>
         <main>
+
             <div class="container">
-                <h2>Keranjang belanja Anda</h2>
+                <h2>Keranjang Belanja Anda</h2>
                 <div class="cart-header">
                     <div></div> <!-- kolom gambar (kosong) -->
                     <div></div> <!-- kolom nama (kosong) -->
@@ -473,28 +606,28 @@
                     <div>Subtotal</div> <!-- kolom subtotal -->
                 </div>
 
-                <div class="cart-item">
 
-                    <!-- FOTO -->
+                <div class="cart-item" data-price="250000" data-weight="3.84">
+
                     <img src="{{ asset('images/new_product_img_1.jpg') }}" alt="Kursi">
 
-                    <!-- INFO PRODUK -->
                     <div class="info">
                         <h3>Kursi</h3>
                         <p>kursi<br>Berat paket: 3.84 kg<br>Total berat paket: 7.68 kg</p>
                         <div class="item-price">Rp 250.000</div>
                     </div>
 
-                    <!-- JUMLAH (QTY) -->
+                    <!-- QTY -->
                     <div class="qty-control">
-                        <button onclick="changeQty(-1)">−</button>
-                        <span id="qty">2</span>
-                        <button onclick="changeQty(1)">+</button>
+                        <button class="btn-minus">−</button>
+                        <span class="qty">2</span>
+                        <button class="btn-plus">+</button>
                     </div>
 
-                    <!-- SUBTOTAL + ICON DI BAWAH -->
+                    <!-- SUBTOTAL + DELETE -->
                     <div class="subtotal-area">
-                        <div class="subtotal" id="subtotal">Rp 500.000</div>
+                        <div class="subtotal">Rp 500.000</div>
+                        <!-- ICON DELETE -->
 
                         <button class="delete-button" type="button" onclick="removeItem()">
                             <span class="button__text">Delete</span>
@@ -523,64 +656,375 @@
                                 </svg>
                             </span>
                         </button>
+                    </div>
+                </div>
+
+                <div class="address-box">
+
+                    <!-- HEADER -->
+                    <div class="address-header" onclick="toggleAddress()">
+                        <span>Tambah Alamat Baru</span>
+                        <span class="arrow">▼</span>
+                    </div>
+
+                    <!-- FORM DI DALAM BOX YANG SAMA -->
+                    <div class="address-form" id="addressForm">
+
+                        <label>Label Alamat</label>
+                        <input type="text" id="label_alamat" placeholder="Rumah / Kos / Kantor">
+
+                        <small>Beri label alamat untuk memudahkan anda memilih alamat</small>
+
+                        <label>Provinsi</label>
+                        <select id="provinsi"></select>
+
+                        <label>Kabupaten / Kota</label>
+                        <select id="kabupaten"></select>
+
+                        <label>Kecamatan</label>
+                        <select id="kecamatan"></select>
+
+                        <label>Kelurahan</label>
+                        <select id="kelurahan"></select>
+
+                        <label>Alamat</label>
+                        <input type="text" id="alamat" placeholder="Nama jalan, RT/RW, patokan">
+
+                        <label>Nama Penerima</label>
+                        <input type="text" id="nama">
+
+                        <label>No Handphone</label>
+                        <input type="text" id="nohp">
+
+                        <button class="btn-submit">Simpan Alamat</button>
 
                     </div>
 
                 </div>
 
 
-            </div>
-            </div>
-            <div class="stickyCheckoutBottom">
-                <div class="checkout-content">
-                    <div class="checkout-total">
-                        Subtotal: <span id="floatingTotal">Rp 500.000</span>
-                    </div>
-                    <button class="checkout-btn">Checkout</button>
+                <div class="address-summary" style="display:none;">
+                    <div id="summary-text"></div>
+                    <button class="btn-edit">Ubah Alamat</button>
                 </div>
+
+                <div class="shipping-box">
+
+                    <!-- HEADER -->
+                    <div class="shipping-header" onclick="toggleShipping()">
+                        <span>Pilih Layanan Pengiriman</span>
+                        <span class="arrow-ship">▼</span>
+                    </div>
+
+                    <!-- OPSI PENGIRIMAN -->
+                    <div class="shipping-options" id="shippingOptions">
+
+                        <!-- JNT Cargo -->
+                        <label class="ship-card">
+                            <input type="radio" name="shipping" value="jnt_cargo" data-price="25000">
+                            <div class="ship-info">
+                                <div class="ship-title">JNT Cargo</div>
+                                <div class="ship-desc">Estimasi 2-4 hari</div>
+                            </div>
+                            <div class="ship-price">Rp 25.000</div>
+                        </label>
+
+                        <!-- JNE REG -->
+                        <label class="ship-card">
+                            <input type="radio" name="shipping" value="jne_reg" data-price="18000">
+                            <div class="ship-info">
+                                <div class="ship-title">JNE Regular</div>
+                                <div class="ship-desc">Estimasi 2-3 hari</div>
+                            </div>
+                            <div class="ship-price">Rp 18.000</div>
+                        </label>
+
+                        <!-- SiCepat -->
+                        <label class="ship-card">
+                            <input type="radio" name="shipping" value="sicepat_reg" data-price="15000">
+                            <div class="ship-info">
+                                <div class="ship-title">SiCepat Regular</div>
+                                <div class="ship-desc">Estimasi 1-2 hari</div>
+                            </div>
+                            <div class="ship-price">Rp 15.000</div>
+                        </label>
+
+                        <!-- AnterAja -->
+                        <label class="ship-card">
+                            <input type="radio" name="shipping" value="anteraja_reg" data-price="17000">
+                            <div class="ship-info">
+                                <div class="ship-title">AnterAja Regular</div>
+                                <div class="ship-desc">Estimasi 2-3 hari</div>
+                            </div>
+                            <div class="ship-price">Rp 17.000</div>
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <button class="checkout-btn">Checkout</button>
+
+
+
+            </div>
+
+            </div>
             </div>
 
         </main>
         <script>
-            let price = 250000;
-            let qty = 2;
+            // Ambil Provinsi
+            fetch("https://www.emsifa.com/api-wilayah-indonesia/api/provinces.json")
+                .then(res => res.json())
+                .then(data => {
+                    let provinsi = document.getElementById("provinsi");
+                    provinsi.innerHTML = "<option value=''>Pilih Provinsi</option>";
+                    data.forEach(p => {
+                        provinsi.innerHTML += `<option value="${p.id}">${p.name}</option>`;
+                    });
+                });
 
-            // Format rupiah
-            function formatRupiah(angka) {
-                return "Rp " + angka.toLocaleString("id-ID");
+            // On Change Provinsi => Load Kabupaten
+            document.getElementById("provinsi").addEventListener("change", function () {
+                let provID = this.value;
+                fetch(`https://www.emsifa.com/api-wilayah-indonesia/api/regencies/${provID}.json`)
+                    .then(res => res.json())
+                    .then(data => {
+                        let kab = document.getElementById("kabupaten");
+                        kab.innerHTML = "<option value=''>Pilih Kabupaten/Kota</option>";
+                        data.forEach(k => {
+                            kab.innerHTML += `<option value="${k.id}">${k.name}</option>`;
+                        });
+                    });
+            });
+
+            // On Change Kabupaten => Load Kecamatan
+            document.getElementById("kabupaten").addEventListener("change", function () {
+                let kabID = this.value;
+                fetch(`https://www.emsifa.com/api-wilayah-indonesia/api/districts/${kabID}.json`)
+                    .then(res => res.json())
+                    .then(data => {
+                        let kec = document.getElementById("kecamatan");
+                        kec.innerHTML = "<option value=''>Pilih Kecamatan</option>";
+                        data.forEach(c => {
+                            kec.innerHTML += `<option value="${c.id}">${c.name}</option>`;
+                        });
+                    });
+            });
+
+            // On Change Kecamatan => Load Kelurahan
+            document.getElementById("kecamatan").addEventListener("change", function () {
+                let kecID = this.value;
+                fetch(`https://www.emsifa.com/api-wilayah-indonesia/api/villages/${kecID}.json`)
+                    .then(res => res.json())
+                    .then(data => {
+                        let kel = document.getElementById("kelurahan");
+                        kel.innerHTML = "<option value=''>Pilih Kelurahan</option>";
+                        data.forEach(d => {
+                            kel.innerHTML += `<option value="${d.id}">${d.name}</option>`;
+                        });
+                    });
+            });
+        </script>
+
+        <script>
+
+            // format angka → Rupiah
+            function formatRupiah(num) {
+                return "Rp " + num.toLocaleString("id-ID");
             }
 
-            // Update subtotal dalam item + subtotal melayang
-            function updateAllSubtotal() {
-                let total = price * qty;
-
-                document.getElementById("subtotal").textContent = formatRupiah(total);
-                document.getElementById("floatingTotal").textContent = formatRupiah(total);
+            // hitung ulang subtotal global
+            function updateTotal() {
+                let total = 0;
+                document.querySelectorAll(".cart-item").forEach(item => {
+                    let price = parseInt(item.dataset.price);
+                    let qty = parseInt(item.querySelector(".qty").innerText);
+                    total += price * qty;
+                });
+                document.getElementById("floatingTotal").innerText = formatRupiah(total);
             }
 
-            // Ubah jumlah
-            function changeQty(n) {
-                qty += n;
-                if (qty < 1) qty = 1;
+            // + qty
+            document.addEventListener("click", e => {
+                if (e.target.classList.contains("btn-plus")) {
+                    let item = e.target.closest(".cart-item");
+                    let qty = item.querySelector(".qty");
+                    qty.innerText = parseInt(qty.innerText) + 1;
 
-                document.getElementById("qty").textContent = qty;
-                updateAllSubtotal();
-            }
+                    // update subtotal item
+                    let price = parseInt(item.dataset.price);
+                    item.querySelector(".subtotal").innerText = formatRupiah(price * qty.innerText);
 
-            // Hapus item
-            function removeItem() {
-                if (confirm("Hapus item dari keranjang?")) {
-                    document.querySelector(".cart-item").remove();
-                    document.getElementById("floatingTotal").textContent = "Rp 0";
+                    updateTotal();
                 }
-            }
+            });
 
-            // Load awal
-            updateAllSubtotal();
+            // - qty
+            document.addEventListener("click", e => {
+                if (e.target.classList.contains("btn-minus")) {
+                    let item = e.target.closest(".cart-item");
+                    let qty = item.querySelector(".qty");
+                    let current = parseInt(qty.innerText);
+
+                    if (current > 1) {
+                        qty.innerText = current - 1;
+
+                        let price = parseInt(item.dataset.price);
+                        item.querySelector(".subtotal").innerText = formatRupiah(price * qty.innerText);
+
+                        updateTotal();
+                    }
+                }
+            });
+
+            // saat halaman pertama kali dibuka
+            updateTotal();
+
+        </script>
+        <script>
+            document.addEventListener("click", e => {
+
+                // Cek apakah tombol delete ditekan
+                if (e.target.closest(".delete-button")) {
+
+                    let item = e.target.closest(".cart-item");
+
+                    Swal.fire({
+                        title: "Hapus Item?",
+                        text: "Item ini akan dihapus dari keranjang.",
+                        icon: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#d33",
+                        cancelButtonColor: "#3085d6",
+                        confirmButtonText: "Ya, hapus",
+                        cancelButtonText: "Batal",
+                    }).then(result => {
+
+                        if (result.isConfirmed) {
+
+                            // 🔥 Hapus item setelah user setuju
+                            item.remove();
+                            updateTotal();
+
+                            Swal.fire({
+                                title: "Terhapus!",
+                                text: "Item berhasil dihapus.",
+                                icon: "success",
+                                confirmButtonColor: "#3aaaf9",
+                                timer: 1300,
+                                showConfirmButton: false
+                            });
+
+                        }
+
+                    });
+
+                }
+
+            });
+        </script>
+
+        <script>
+            function toggleAddress() {
+                const form = document.getElementById('addressForm');
+                const header = document.querySelector('.address-header');
+
+                form.classList.toggle('show');     // buka / tutup form
+                header.classList.toggle('active'); // rotasi arrow
+            }
+        </script>
+
+        <script>
+            function toggleShipping() {
+                const box = document.getElementById('shippingOptions');
+                const header = document.querySelector('.shipping-header');
+
+                box.classList.toggle('show');
+                header.classList.toggle('active');
+            }
         </script>
 
 
+        <!-- Leaflet CSS -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 
+        <!-- Leaflet JS -->
+        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+        <script>
+            // Inisialisasi Maps di posisi default
+            var map = L.map('map').setView([-6.200000, 106.816666], 13); // Jakarta
+
+            // Load tile OpenStreetMap gratis
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19
+            }).addTo(map);
+
+            var marker;
+
+            // Klik pada maps -> simpan lokasi
+            map.on('click', function (e) {
+                var lat = e.latlng.lat;
+                var lng = e.latlng.lng;
+
+                document.getElementById("lat").value = lat;
+                document.getElementById("lng").value = lng;
+
+                // Hapus marker sebelumnya
+                if (marker) {
+                    map.removeLayer(marker);
+                }
+
+                // Tambah marker baru
+                marker = L.marker([lat, lng]).addTo(map);
+            });
+        </script>
+
+        <script>
+            document.querySelector(".btn-submit").onclick = function () {
+
+                // Get value dari inputan
+                let label = document.getElementById("label_alamat").value;
+                let prov = document.getElementById("provinsi").selectedOptions[0]?.text;
+                let kab = document.getElementById("kabupaten").selectedOptions[0]?.text;
+                let kec = document.getElementById("kecamatan").selectedOptions[0]?.text;
+                let kel = document.getElementById("kelurahan").selectedOptions[0]?.text;
+                let alamat = document.getElementById("alamat").value;
+                let nama = document.getElementById("nama").value;
+                let nohp = document.getElementById("nohp").value;
+
+                // Validasi simple
+                if (!label || !alamat || !nama || !nohp) {
+                    alert("Harap lengkapi semua data!");
+                    return;
+                }
+
+                // Buat ringkasan alamat
+                let summaryHTML = `
+        <strong>${label}</strong> <br>
+        ${alamat} <br>
+        Kel. ${kel}, Kec. ${kec} <br>
+        ${kab}, ${prov} <br><br>
+        <strong>Nama penerima:</strong> ${nama} <br>
+        <strong>No HP:</strong> ${nohp}
+    `;
+
+                document.getElementById("summary-text").innerHTML = summaryHTML;
+
+                // Hide form → show summary
+                document.querySelector(".address-form").style.display = "none";
+                document.querySelector(".address-summary").style.display = "block";
+            };
+
+            // Tombol "Ubah Alamat"
+            document.querySelector(".btn-edit").onclick = function () {
+                document.querySelector(".address-form").style.display = "block";
+                document.querySelector(".address-summary").style.display = "none";
+            };
+        </script>
 
     </body>
     @include('partials.footer')

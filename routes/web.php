@@ -34,6 +34,11 @@ Route::get('/user', function () {
     return view('user');
 })->name('user.page');
 
+
 Route::get('/cart', function () {
     return view('cart');
 })->name('cart.page');
+Route::get('/productdetail', function () {
+    return view('productdetail');
+})->name('productdetail.page');
+

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,29 +27,23 @@
             <input type="text" id="username" placeholder="Masukkan email atau username" required />
             <input type="password" id="password" placeholder="Masukkan kata sandi" required />
 
-<div class="button-group"> <button type="submit" class="btn login-btn">{{ __('Login') }}</button> <button type="button" class="btn register-btn" onclick="window.location.href='register'">{{ __('Register') }}</button> </div>
+            <div class="button-group"> <button type="submit" class="btn login-btn">{{ __('Login') }}</button> <button
+                    type="button" class="btn register-btn"
+                    onclick="window.location.href='register'">{{ __('Register') }}</button> </div>
         </form>
 
         <div class="divider"><span>atau</span></div>
 
         <!-- GOOGLE LOGIN -->
-        <div id="g_id_onload"
-             data-client_id="476359365013-9gp1072u5ljsahdrk5p0d8rnpghn4llh.apps.googleusercontent.com"
-             data-context="signin"
-             data-ux_mode="popup"
-             data-callback="handleCredentialResponse"></div>
+        <div id="g_id_onload" data-client_id="476359365013-9gp1072u5ljsahdrk5p0d8rnpghn4llh.apps.googleusercontent.com"
+            data-context="signin" data-ux_mode="popup" data-callback="handleCredentialResponse"></div>
 
-        <div class="g_id_signin"
-             data-type="standard"
-             data-shape="rectangular"
-             data-theme="outline"
-             data-text="signin_with"
-             data-size="large"
-             data-logo_alignment="left"></div>
+        <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="outline"
+            data-text="signin_with" data-size="large" data-logo_alignment="left"></div>
     </div>
 
     <!-- SCRIPT LOGIN -->
-    <script>
+    <!-- <script>
         // LOGIN MANUAL
         document.getElementById("loginForm").addEventListener("submit", function(e) {
             e.preventDefault();
@@ -149,6 +144,7 @@
                 window.location.href = "{{ route('admin.page') }}";
             }
         }
-    </script>
+    </script> -->
 </body>
+
 </html>
